@@ -22,7 +22,9 @@ Rails.application.routes.draw do
       namespace :current do
         resources :articles, only: [:index]
       end
-      resources :articles
+      resources :articles do
+        resources :comments, param: :comment_id
+      end
     end
   end
 end
